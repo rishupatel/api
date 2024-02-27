@@ -4,17 +4,21 @@ const path = require('path');
 const cors = require('cors')
 const app = express();
 
+require('dotenv').config();
+
 app.use(express.static('public'));
 app.use(express.json());
 
+
 const corsOptions = {
     origin: 'https://translationapi/api',
-    methods: ["GET","POST"],
+    methods: ["GET", "POST"],
     credentials: true,
     optionsSuccessStatus: 204,
-  };
-  
-  app.use(cors(corsOptions));
+};
+
+
+app.use(cors(corsOptions));
 
 
 
