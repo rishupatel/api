@@ -6,7 +6,16 @@ const app = express();
 
 app.use(express.static('public'));
 app.use(express.json());
-app.use(cors());
+
+const corsOptions = {
+    origin: 'https://translationapi/api',
+    methods: ["GET","POST"],
+    credentials: true,
+    optionsSuccessStatus: 204,
+  };
+  
+  app.use(cors(corsOptions));
+
 
 
 i18n.configure({
